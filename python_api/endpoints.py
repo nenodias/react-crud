@@ -24,7 +24,7 @@ def programa_save():
         program_json = request.json
         program_loaded = programa_schema.load(program_json)
         status = 500
-        erros += str(program_loaded.errors)
+        logging.error(str(program_loaded.errors))
         if program_loaded:
             data = program_loaded.data
             program = Programa(**program_loaded.data)
