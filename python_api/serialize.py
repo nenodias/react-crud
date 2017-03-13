@@ -11,8 +11,8 @@ class ProgramaSchema(ma.Schema):
         fields = ('id', 'nome', 'valor', '_links')
 
     _links = ma.Hyperlinks({
-        'self': ma.URLFor('programa_detail', id='<id>'),
-        'collection': ma.URLFor('programas')
+        'self': ma.URLFor('programs.detail', id='<id>'),
+        'collection': ma.URLFor('programs.list')
     })
 
 

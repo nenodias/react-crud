@@ -9,7 +9,7 @@ app = Blueprint('programs', __name__)
 
 
 @app.route('/api/programs/', methods=['GET', 'OPTIONS'])
-def programas():
+def list():
     """Lista os programas."""
     all_programas = Programa.query.all()
     result = programas_schema.dump(all_programas)
@@ -17,7 +17,7 @@ def programas():
 
 
 @app.route('/api/programs/', methods=['POST'])
-def programa_save():
+def save():
     """Retorna uma instância de Programa."""
     try:
         program_json = request.json
@@ -41,14 +41,14 @@ def programa_save():
 
 
 @app.route('/api/programs/<id>', methods=['GET'])
-def programa_detail(id):
+def detail(id):
     """Retorna uma instância de Programa."""
     program = Programa.query.get(id)
     return programa_schema.jsonify(program), 200
 
 
 @app.route('/api/programs/<id>', methods=['DELETE'])
-def programa_delete(id):
+def delete(id):
     """Retorna uma instância de Programa."""
     program = Programa.query.get(id)
     if program:
