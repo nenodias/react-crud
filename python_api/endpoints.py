@@ -19,7 +19,6 @@ def programas():
 @app.route('/api/programs/', methods=['POST'])
 def programa_save():
     """Retorna uma instância de Programa."""
-    erros = ""
     try:
         program_json = request.json
         program_loaded = programa_schema.load(program_json)
