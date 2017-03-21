@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const SERVICE_ENDPOINT = 'http://192.168.92.3:8000';
+const SERVICE_ENDPOINT = 'http://127.0.0.1:5000';
 
 
 class ProgramaService{

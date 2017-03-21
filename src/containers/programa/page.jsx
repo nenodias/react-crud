@@ -7,7 +7,6 @@ class PagePrograma extends React.Component {
         console.log(values);
     }
     render() {
-        //console.log(this);
         return (
             <FormPrograma value={{firstName: 'Michael', lastName: 'Jackson'}} onSubmit={this.handleSubmit} />
         );

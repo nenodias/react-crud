@@ -6,20 +6,25 @@ class FormPrograma extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <Field name="firstName" component="input" type="text"/>
-                </div>
-                <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <Field name="lastName" component="input" type="text"/>
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <Field name="email" component="input" type="email"/>
-                </div>
-                <button type="submit">Submit</button>
+            <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
+                <fieldset>
+                    <legend>Programa</legend>
+                    <div className="pure-control-group">
+                        <label htmlFor="firstName">First Name</label>
+                        <Field name="firstName" component="input" type="text"/>
+                    </div>
+                    <div className="pure-control-group">
+                        <label htmlFor="lastName">Last Name</label>
+                        <Field name="lastName" component="input" type="text"/>
+                    </div>
+                    <div className="pure-control-group">
+                        <label htmlFor="email">Email</label>
+                        <Field name="email" component="input" type="email"/>
+                    </div>
+                    <div className="pure-controls">
+                        <button className="pure-button pure-button-primary" type="submit">Submit</button>
+                    </div>
+                </fieldset>
             </form>
         );
     }

@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 class IndexPrograma extends Component {
     render() {
         return (
-            <div className="index-relacao">
-                <h2>Listagem de Relações</h2>
+            <div>
+                <div className="header index-metatabela">
+                    <h1>Listagem de Relações</h1>
+                    <h2>Aqui as Relações são cadastradas</h2>
+                </div>
+                <div className="content">
+
+                </div>
             </div>
         );
     }

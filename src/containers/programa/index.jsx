@@ -21,10 +21,15 @@ class IndexPrograma extends Component {
           <li key={p.id}>{p.nome} - {p.valor}</li>
         );
         return (
-            <div className="index-programa">
-                <h2>Listagem de Programas</h2>
-                <ul>{listItems}</ul>
-                <PagePrograma />
+            <div>
+                <div className="header index-metatabela">
+                    <h1>Listagem de Programas</h1>
+                    <h2>Aqui as Programas são cadastradas</h2>
+                </div>
+                <div className="content">
+                    <ul>{listItems}</ul>
+                    <PagePrograma />
+                </div>
             </div>
         );
     }

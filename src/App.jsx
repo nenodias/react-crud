@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FilterLink from './components/FilterLink';
+import AppBar from './components/AppBar';
 
 import IndexMetaTabela from './containers/metatabela/index';
 import IndexPrograma from './containers/programa/index';
@@ -13,23 +13,20 @@ class Vazio extends Component {
     }
 }
 
+const Menu =  [
+    {titulo: "MetaTabelas",url:"metatabela"},
+    {titulo: "Programas",url:"programa"},
+    {titulo: "Relações",url:"relacao"}
+];
+
 class App extends Component {
     render() {
         const param = this.props.params;
         const Root = getComponent(param.cadastro);
         return (
-            <div className="App">
-                <FilterLink filter="metatabela">
-                    MetaTabelas
-                </FilterLink>
-                <FilterLink filter="programa">
-                    Programas
-                </FilterLink>
-                <FilterLink filter="relacao">
-                    Relações
-                </FilterLink>
+            <AppBar menu={Menu}>
                 <Root />
-            </div>
+            </AppBar>
         );
     }
 }
