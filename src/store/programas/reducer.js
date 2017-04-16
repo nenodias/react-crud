@@ -10,11 +10,14 @@ const initialState = Immutable({
 export default function reduce(state = initialState, action = {}){
     switch(action.type){
         case types.PROGRAMS_FETCHED:
-            const retorno = state.merge({
+            return state.merge({
                 programsById:action.programsById,
                 programsArray:action.programsArray
             });
-            return retorno;
+        case types.PROGRAM_SAVED:
+            return state.merge({
+                entidade:action.retorno,
+            });
         default:
             return state;
     }
@@ -26,4 +29,8 @@ export function programsById(state){
 
 export function programsArray(state){
     return state.programas.programsArray;
+}
+
+export function entidadeProgram(state){
+    return state.programas.entidade;
 }

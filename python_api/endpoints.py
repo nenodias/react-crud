@@ -1,5 +1,6 @@
 """Endpoints."""
 import logging
+from cross_origin import crossdomain
 from app import db
 from models import Programa
 from flask import Blueprint, request, jsonify
@@ -9,6 +10,7 @@ app = Blueprint('programs', __name__)
 
 
 @app.route('/api/programs/', methods=['GET', 'OPTIONS'])
+@crossdomain()
 def list():
     """Lista os programas."""
     all_programas = Programa.query.all()
@@ -17,9 +19,11 @@ def list():
 
 
 @app.route('/api/programs/', methods=['POST'])
+@crossdomain()
 def save():
-    """Retorna uma instância de Programa."""
+    """Retorna uma instancia de Programa."""
     try:
+        print('json:', request.json)
         program_json = request.json
         program_loaded = programa_schema.load(program_json)
         status = 500
@@ -41,15 +45,17 @@ def save():
 
 
 @app.route('/api/programs/<id>', methods=['GET'])
+@crossdomain()
 def detail(id):
-    """Retorna uma instância de Programa."""
+    """Retorna uma instancia de Programa."""
     program = Programa.query.get(id)
     return programa_schema.jsonify(program), 200
 
 
 @app.route('/api/programs/<id>', methods=['DELETE'])
+@crossdomain()
 def delete(id):
-    """Retorna uma instância de Programa."""
+    """Retorna uma instancia de Programa."""
     program = Programa.query.get(id)
     if program:
         try:

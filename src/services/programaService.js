@@ -5,33 +5,33 @@ const SERVICE_ENDPOINT = 'http://127.0.0.1:5000';
 
 class ProgramaService{
 
-    async save() {
-        const url = `${SERVICE_ENDPOINT}/api/programs`;
+    async save(program) {
+        const url = `${SERVICE_ENDPOINT}/api/programs/`;
         const response = await fetch(url,{
             method:'POST',
+            body:JSON.stringify(program),
             headers:{
-                'Accept':'application/json'
+                'Accept':'application/json',
+                'Content-Type':'application/json'
             }
         });
         if(!response.ok){
-            throw new Error(`RedditService getDefaultSubreddits failed, HTTP status ${response.status}`);
+            throw new Error(`Programa save failed, HTTP status ${response.status}`);
         }
         const data = await response.json();
-        const children = _.get(data, 'data.children');
-        if(!children){
-            throw new Error(`RedditService getDefaultSubreddits failed, children not returned`);
+        if(!data){
+            throw new Error(`Programa save failed, data not returned`);
         }
-        return _.map(children,(subreddit) => {
-            return {
-                title: _.get(subreddit, 'data.display_name'),
-                description: _.get(subreddit, 'data.public_description'),
-                url: _.get(subreddit, 'data.url')
-            }
-        });
+        const item = {
+            id: _.get(data, 'id'),
+            nome: _.get(data, 'nome'),
+            valor: _.get(data, 'valor')
+        };
+        return item;
     }
 
     async getPrograms() {
-        const url = `${SERVICE_ENDPOINT}/api/programs`;
+        const url = `${SERVICE_ENDPOINT}/api/programs/`;
         const response = await fetch(url,{
             method:'GET',
             headers:{

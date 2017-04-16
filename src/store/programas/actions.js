@@ -14,3 +14,14 @@ export function fetchPrograms(){
         }
     };
 }
+
+export function saveProgram(data){
+    return async(dispatch, getState) => {
+        try{
+            const retorno = await ProgramaService.save(data);
+            dispatch({  type:types.PROGRAM_SAVED, retorno });
+        }catch(error){
+            console.error(error);
+        }
+    };
+}

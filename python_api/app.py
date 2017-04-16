@@ -1,18 +1,16 @@
-"""Aplicação Rest Flask + Marshmallow."""
+"""Aplicacao Rest Flask + Marshmallow."""
 # -*- coding:utf-8 -*-
 # from pdb import set_trace
 from flask import Flask
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
 
 db = SQLAlchemy()
 ma = Marshmallow()
-cors = CORS(resources={r"/api/*": {"origins": "*"}})
 
 
 def create_app(database_uri, debug=False):
-    """Cria a aplicação."""
+    """Cria a aplicacao."""
     app = Flask(__name__)
     app.debug = debug
     app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
@@ -22,7 +20,6 @@ def create_app(database_uri, debug=False):
     app.register_blueprint(program_endpoint)
     db.init_app(app)
     ma.init_app(app)
-    cors.init_app(app)
     with app.app_context():
         db.create_all()
 
