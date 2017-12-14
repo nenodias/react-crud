@@ -25,3 +25,14 @@ export function saveProgram(data){
         }
     };
 }
+
+export function loadProgram(id){
+    return async(dispatch, getState) => {
+        try{
+            const retorno = await ProgramaService.getProgramById(id);
+            dispatch({  type:types.PROGRAM_OPENED, retorno });
+        }catch(error){
+            console.error(error);
+        }
+    };
+}

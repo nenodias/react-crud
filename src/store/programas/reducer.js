@@ -3,6 +3,7 @@ import * as types from './actionTypes';
 import Immutable from 'seamless-immutable';
 
 const initialState = Immutable({
+    id: undefined,
     programsById: undefined,
     programsArray:[]
 });
@@ -15,6 +16,10 @@ export default function reduce(state = initialState, action = {}){
                 programsArray:action.programsArray
             });
         case types.PROGRAM_SAVED:
+            return state.merge({
+                entidade:action.retorno,
+            });
+        case types.PROGRAM_OPENED:
             return state.merge({
                 entidade:action.retorno,
             });

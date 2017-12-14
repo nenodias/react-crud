@@ -25,7 +25,7 @@ class App extends Component {
         const Root = getComponent(param.cadastro);
         return (
             <AppBar menu={Menu}>
-                <Root />
+                <Root id={param.id} />
             </AppBar>
         );
     }
@@ -44,7 +44,7 @@ function getComponent(parametro){
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, ownProps){
     return {
     };
 }

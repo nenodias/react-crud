@@ -39,5 +39,6 @@ module.exports = {
         filename: 'bundle.js',
         output: __dirname,
     },
-    resolve:{ extensions: [ '','.js', '.jsx'] }
+    resolve:{ extensions: [ '','.js', '.jsx'] },
+    devtool: 'source-map'
 }

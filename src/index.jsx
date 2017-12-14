@@ -18,7 +18,7 @@ const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 ReactDOM.render(
     (<Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/(:cadastro)" component={App} />
+            <Route path="/(:cadastro)(/:id)" component={App} />
         </Router>
     </Provider>),
     document.getElementById('app')
